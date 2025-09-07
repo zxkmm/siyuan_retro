@@ -1,3 +1,506 @@
+/* --- Retro Windows 98 Toolbar (Top Bar) and Window Frame Style --- */
+#toolbar.toolbar.fn__flex {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(90deg, #2062a6 0%, #3a8dde 100%);
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+    box-shadow: 0 2px 0 #b5b5b5, 0 4px 0 #fff;
+    min-height: 38px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    position: relative;
+    z-index: 20;
+}
+
+#toolbar .toolbar__item {
+    background: #ece9d8;
+    color: #222;
+    border: 2px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    border-radius: 0;
+    margin: 0 4px;
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: none;
+}
+
+#toolbar .toolbar__item:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    background: #d4d0c8;
+    box-shadow: none;
+}
+
+#toolbar .toolbar__item.toolbar__item--active {
+    background: #d4d0c8;
+    color: #2062a6;
+    font-weight: bold;
+}
+
+#toolbar .toolbar__item svg {
+    width: 16px;
+    height: 16px;
+    fill: #2062a6;
+}
+
+#toolbar .toolbar__text {
+    margin-right: 6px;
+    font-weight: bold;
+    color: #2062a6;
+}
+
+#toolbar .fn__flex-1, #toolbar .fn__flex {
+    flex: 1;
+    color: #fff;
+    background: transparent;
+    min-width: 0;
+}
+
+/* Window outer frame (wrap your app in a .retro-window or body) */
+.retro-window, body {
+    background: #ece9d8;
+    border: 3px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 4px 4px 0 #b5b5b5, 8px 8px 0 #fff;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Optional: Add a subtle inner shadow for depth */
+.retro-window, body {
+    box-shadow: 4px 4px 0 #b5b5b5, 8px 8px 0 #fff, 0 0 0 1px #808080 inset;
+}
+/* --- Retro Windows 95/98 Status Bar (Bottom Bar) Retro Style --- */
+#status.status {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    background: #ece9d8 !important;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+    box-shadow: 0 -1px 0 #b5b5b5, 0 -2px 0 #fff;
+    min-height: 32px;
+    padding: 2px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    position: relative;
+    z-index: 10;
+}
+
+#status .toolbar__item {
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    border-radius: 0;
+    margin: 0 4px;
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: none;
+}
+
+#status .toolbar__item:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    background: #d4d0c8;
+    box-shadow: none;
+}
+
+#status .toolbar__item svg {
+    width: 16px;
+    height: 16px;
+    fill: #222;
+}
+
+#status .status__msg, #status .status__counter, #status .status__backgroundtask {
+    background: transparent;
+    color: #222;
+    font-family: inherit;
+    font-size: 14px;
+    margin: 0 8px;
+    padding: 0 4px;
+    border-radius: 0;
+}
+
+#status .status__counter {
+    background: #ece9d8;
+    border: 1px solid #b5b5b5;
+    color: #222;
+    font-size: 12px;
+    border-radius: 0;
+    padding: 0 6px;
+    margin-left: 8px;
+    box-shadow: 1px 1px 0 #b5b5b5;
+}
+
+#status .fn__flex-1 {
+    flex: 1;
+}
+/* --- Retro Windows 95/98 Dock/Panel Item Style --- */
+.dock__item, .retro-panel, span[data-type="outline"], div[data-type="outline"] {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    padding: 3px 12px;
+    margin: 2px;
+    outline: none;
+    border-radius: 0;
+    min-width: 40px;
+    min-height: 24px;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dock__item:active, .retro-panel:active, span[data-type="outline"]:active, div[data-type="outline"]:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    background: #d4d0c8;
+    box-shadow: none;
+}
+
+.dock__item:focus, .retro-panel:focus, span[data-type="outline"]:focus, div[data-type="outline"]:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+.dock__item svg, .retro-panel svg, span[data-type="outline"] svg, div[data-type="outline"] svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    fill: #222;
+}
+
+.dock__item:hover, .retro-panel:hover, span[data-type="outline"]:hover, div[data-type="outline"]:hover {
+    background: #e4e4e4;
+}
+/* --- Retro Windows 95/98 Button Style --- */
+button, .retro-btn, .block__icon.fn__flex-center.ariaLabel[data-type] {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    padding: 3px 12px;
+    margin: 2px;
+    outline: none;
+    cursor: pointer;
+    transition: none;
+    position: relative;
+    min-width: 40px;
+    min-height: 24px;
+    user-select: none;
+    border-radius: 0;
+}
+
+button:active, .retro-btn:active, .block__icon.fn__flex-center.ariaLabel[data-type]:active {
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    background: #d4d0c8;
+    box-shadow: none;
+}
+
+button:focus, .retro-btn:focus, .block__icon.fn__flex-center.ariaLabel[data-type]:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+button svg, .retro-btn svg, .block__icon.fn__flex-center.ariaLabel[data-type] svg {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    fill: #222;
+}
+
+/* Optional: Add a hover effect for more realism */
+button:hover, .retro-btn:hover, .block__icon.fn__flex-center.ariaLabel[data-type]:hover {
+    background: #e4e4e4;
+}
 :root {
     --b3-theme-primary: #d23f31;
+}
+
+/* --- Retro Windows 95/98 Document Tree / File Tree Retro Style --- */
+.file-tree.sy__file, .b3-list.b3-list--background {
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    border-radius: 0;
+    margin: 8px 0 8px 0;
+    padding: 4px 0 4px 0;
+}
+
+.b3-list-item {
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    border-radius: 0;
+    margin: 2px 8px;
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    transition: none;
+    cursor: pointer;
+}
+
+.b3-list-item:hover, .b3-list-item:focus {
+    background: #e4e4e4;
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+}
+
+.b3-list-item__toggle, .b3-list-item__arrow {
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    fill: #222;
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.b3-list-item__icon {
+    margin-right: 6px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.b3-list-item__text {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.b3-list-item__action {
+    margin-left: 4px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5;
+    border-radius: 0;
+    cursor: pointer;
+    transition: none;
+}
+
+.b3-list-item__action:hover {
+    background: #e4e4e4;
+}
+
+.block__icons, .block__logo {
+    background: #c0c0c0;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 15px;
+    color: #222;
+    border-radius: 0;
+}
+
+.block__logoicon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    fill: #222;
+    vertical-align: middle;
+}
+
+.b3-tooltips {
+    background: #ece9d8;
+    color: #222;
+    border: 1px solid #b5b5b5;
+    font-size: 12px;
+    border-radius: 0;
+    box-shadow: 1px 1px 0 #b5b5b5;
+}
+
+.counter {
+    background: #ece9d8;
+    border: 1px solid #b5b5b5;
+    color: #222;
+    font-size: 12px;
+    border-radius: 0;
+    padding: 0 4px;
+    margin-left: 6px;
+}
+}
+
+/* --- Retro Windows 95/98 Tab Bar Style --- */
+.layout-tab-bar, .layout-tab-bar--readonly {
+    display: flex;
+    align-items: center;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    padding: 2px 4px 2px 2px;
+    margin: 0 2px 4px 2px;
+    border-radius: 0;
+    min-height: 28px;
+}
+
+.layout-tab-bar--readonly {
+    background: #e4e4e4;
+    border-style: dashed;
+    opacity: 0.85;
+}
+
+.layout-tab-bar .item, .layout-tab-bar--readonly .item {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    color: #222;
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    margin: 0 4px 0 0;
+    padding: 2px 16px 2px 8px;
+    border-radius: 0;
+    min-width: 60px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: none;
+}
+
+.layout-tab-bar .item--focus {
+    background: #d4d0c8;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    z-index: 2;
+}
+
+.layout-tab-bar .item:hover, .layout-tab-bar--readonly .item:hover {
+    background: #e4e4e4;
+}
+
+.layout-tab-bar .item__text {
+    flex: 1;
+    padding-right: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.layout-tab-bar .item__close {
+    margin-left: 4px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.layout-tab-bar .item__close svg {
+    width: 12px;
+    height: 12px;
+    fill: #222;
+}
+
+.layout-tab-bar--readonly .item--readonly {
+    background: #e4e4e4;
+    border: 2px dashed #b5b5b5;
+    color: #888;
+    cursor: default;
+}
+
+.layout-tab-bar--readonly .block__icon {
+    background: #ece9d8;
+    border: 2px solid #fff;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    box-shadow: 1px 1px 0 #b5b5b5, 2px 2px 0 #fff;
+    margin: 0 2px;
+    border-radius: 0;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: none;
+}
+
+.layout-tab-bar--readonly .block__icon:hover {
+    background: #e4e4e4;
 }
