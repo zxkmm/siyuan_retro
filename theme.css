@@ -1,3 +1,267 @@
+/* =====================
+     Retro Theme Advanced
+     ===================== */
+
+/* 1. 多色主题支持（仿Win98 Plus!） */
+
+/* 复古壁纸可选 */
+.retro-bg-texture {
+    background: repeating-linear-gradient(135deg, #e0e0e0 0 8px, #d4d0c8 8px 16px) !important;
+}
+.retro-bg-texture-dark {
+    background: repeating-linear-gradient(135deg, #3c3c3c 0 8px, #222 8px 16px) !important;
+}
+/* 7. 窗口拖拽/选中/禁用/只读等状态表现 */
+.retro-window:active, .retro-dialog:active, .modal:active {
+    box-shadow: 0 0 0 2px var(--retro-accent), 8px 8px 0 var(--retro-shadow), 0 0 0 1px var(--retro-border-dark) inset;
+}
+.retro-window[aria-disabled="true"], .retro-dialog[aria-disabled="true"], .modal[aria-disabled="true"], input:disabled, textarea:disabled, button:disabled {
+    filter: grayscale(0.7) brightness(1.1);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+input[readonly], textarea[readonly] {
+    background: #f4f4f4;
+    color: #888;
+    border-style: dashed;
+}
+/* 8. 复古右键菜单/弹窗动画 */
+.b3-menu, .context-menu, .retro-menubar {
+    animation: retro-popup-in 0.18s cubic-bezier(.4,1.6,.6,1) both;
+}
+@keyframes retro-popup-in {
+    0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+    100% { transform: none; opacity: 1; }
+}
+/* 9. 输入框/按钮禁用态 */
+input:disabled, textarea:disabled, select:disabled, button:disabled {
+    background: #e0e0e0;
+    color: #aaa;
+    border-style: dashed;
+    box-shadow: none;
+}
+/* 10. tab关闭按钮/折叠箭头动画 */
+.layout-tab-bar .item__close {
+    opacity: 0.7;
+    transition: opacity .12s, filter .12s;
+}
+.layout-tab-bar .item__close:hover {
+    opacity: 1;
+    filter: drop-shadow(1px 1px 0 #fff) drop-shadow(2px 2px 0 #808080);
+}
+.b3-list-item__toggle, .b3-list-item__arrow {
+    transition: transform .15s cubic-bezier(.4,1.6,.6,1);
+}
+.b3-list-item__toggle.collapsed, .b3-list-item__arrow.collapsed {
+    transform: rotate(-90deg);
+}
+/* 11. 通知/进度条高亮 */
+.b3-toast, .b3-snackbar {
+    border: 2.5px double var(--retro-accent);
+    background: linear-gradient(90deg, #fff 0, #ece9d8 100%);
+    color: #222;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+.progress-bar-indicator {
+    animation: retro-progress-bar 1.2s linear infinite alternate;
+}
+@keyframes retro-progress-bar {
+    0% { filter: brightness(1.1); }
+    100% { filter: brightness(0.85); }
+}
+/* 12. 图片/表格悬浮阴影 */
+img:hover, .b3-typography img:hover, table:hover {
+    box-shadow: 0 0 0 2px var(--retro-accent), 2px 2px 8px #0002;
+    z-index: 2;
+}
+/* 13. 引用/代码块高亮 */
+blockquote:hover, .b3-typography blockquote:hover, pre:hover, code:hover {
+    background: #f7f7e0;
+    border-color: var(--retro-accent);
+    box-shadow: 0 0 0 2px var(--retro-accent), 1px 1px 0 var(--retro-shadow);
+}
+
+/* 2. 复古像素化icon与窗口阴影 */
+.retro-window, body {
+    image-rendering: pixelated;
+    box-shadow: 4px 4px 0 var(--retro-shadow), 8px 8px 0 var(--retro-border-light), 0 0 0 1px var(--retro-border-dark) inset, 0 12px 32px 0 #0004;
+}
+.retro-icon, .b3-list-item__icon, .block__logoicon, .block__icon svg {
+    image-rendering: pixelated;
+    filter: contrast(1.2) grayscale(0.1) drop-shadow(1px 1px 0 #fff) drop-shadow(2px 2px 0 #808080);
+}
+
+/* 3. 复古分割线/装饰线 */
+.retro-separator, hr, .b3-list__divider, .layout-tab-bar:after {
+    border: none;
+    border-top: 2px solid var(--retro-border-dark);
+    border-bottom: 2px solid var(--retro-border-light);
+    height: 0;
+    margin: 8px 0;
+    background: none;
+}
+
+/* 4. 复古字体/标题栏/菜单栏/弹窗/对话框/进度条/通知/代码块/表格/引用/列表/链接/图片/选区/折叠/悬浮等复古样式 */
+
+/* 标题栏 */
+.retro-titlebar, .fn__flex .block__logo, .block__icons {
+    background: linear-gradient(90deg, var(--retro-accent), #3a8dde 100%);
+    color: #fff;
+    font-family: var(--retro-font);
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #fff;
+    border-bottom: 2px solid var(--retro-border-dark);
+    border-radius: var(--retro-radius);
+    box-shadow: 0 2px 0 var(--retro-shadow);
+}
+
+/* 菜单栏 */
+.retro-menubar, .menu, .suggestion-container {
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    font-family: var(--retro-font);
+    font-size: 15px;
+    border-radius: var(--retro-radius);
+}
+.menu-item, .suggestion-item {
+    padding: 4px 16px;
+    border-radius: var(--retro-radius);
+    transition: none;
+}
+.menu-item.selected, .suggestion-item.is-selected {
+    background: var(--retro-accent);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 弹窗/对话框 */
+.retro-dialog, .modal, .b3-dialog {
+    background: var(--retro-bg);
+    border: 3px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 8px 8px 0 var(--retro-shadow), 0 0 0 1px var(--retro-border-dark) inset, 0 16px 48px 0 #0006;
+    border-radius: var(--retro-radius);
+    font-family: var(--retro-font);
+}
+.modal-close-button {
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    border-radius: var(--retro-radius);
+}
+
+/* 进度条/通知 */
+.progress-bar, .b3-toast, .b3-snackbar {
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    border-radius: var(--retro-radius);
+    font-family: var(--retro-font);
+}
+.progress-bar-indicator {
+    background: var(--retro-accent);
+    border-radius: var(--retro-radius);
+}
+
+/* 代码块/表格/引用/列表/链接/图片/选区/折叠/悬浮 */
+pre, code, .b3-typography code, .b3-typography pre {
+    background: #222;
+    color: #e6e23c;
+    font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    border-radius: var(--retro-radius);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    padding: 4px 8px;
+}
+table, th, td {
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    background: var(--retro-btn-bg);
+    font-family: var(--retro-font);
+    border-radius: var(--retro-radius);
+}
+blockquote, .b3-typography blockquote {
+    background: #e4e4e4;
+    border-left: 8px solid var(--retro-accent);
+    color: #222;
+    font-family: var(--retro-font);
+    margin: 8px 0;
+    padding: 8px 16px;
+    border-radius: var(--retro-radius);
+}
+ul, ol {
+    font-family: var(--retro-font);
+    background: var(--retro-btn-bg);
+    border-radius: var(--retro-radius);
+    padding-left: 2em;
+}
+a {
+    color: var(--retro-accent);
+    text-decoration: underline dotted;
+    font-weight: bold;
+    transition: color .1s;
+}
+a:hover {
+    color: #e35b8f;
+}
+img, .b3-typography img {
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    border-radius: var(--retro-radius);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    background: var(--retro-btn-bg);
+    image-rendering: pixelated;
+}
+::selection {
+    background: var(--retro-accent);
+    color: #fff;
+}
+.b3-list-item__toggle, .b3-list-item__arrow {
+    border: 1.5px solid var(--retro-border-dark);
+    background: var(--retro-btn-bg);
+    border-radius: var(--retro-radius);
+}
+.b3-list-item__toggle:after, .b3-list-item__arrow:after {
+    content: '';
+    display: block;
+    width: 8px; height: 2px;
+    background: var(--retro-accent);
+    margin: 3px auto;
+}
+.b3-list-item__toggle.collapsed:after, .b3-list-item__arrow.collapsed:after {
+    width: 2px; height: 8px;
+}
+
+/* 5. 交互动画和高亮 */
+button, .retro-btn, .block__icon.fn__flex-center.ariaLabel[data-type], .b3-list-item, .menu-item, .suggestion-item, .layout-tab-bar .item {
+    transition: background 0.08s, box-shadow 0.08s, color 0.08s;
+}
+button:active, .retro-btn:active, .block__icon.fn__flex-center.ariaLabel[data-type]:active, .b3-list-item:active, .menu-item:active, .suggestion-item:active, .layout-tab-bar .item:active {
+    filter: brightness(0.95) contrast(1.1);
+}
+
+/* 6. 可选背景纹理和壁纸风格 */
+.retro-bg-texture {
+    background: var(--retro-wallpaper) !important;
+}
+.retro-bg-texture-dark {
+    background: var(--retro-wallpaper-dark) !important;
+}
 /* --- Retro Windows 98 Toolbar (Top Bar) and Window Frame Style --- */
 #toolbar.toolbar.fn__flex {
     font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
@@ -261,8 +525,181 @@ button svg, .retro-btn svg, .block__icon.fn__flex-center.ariaLabel[data-type] sv
 button:hover, .retro-btn:hover, .block__icon.fn__flex-center.ariaLabel[data-type]:hover {
     background: #e4e4e4;
 }
+
+/* 复古主题变量增强 */
 :root {
     --b3-theme-primary: #d23f31;
+    --retro-bg: #ece9d8;
+    --retro-bg-dark: #3c3c3c;
+    --retro-bg-light: #fff;
+    --retro-border-light: #fff;
+    --retro-border-dark: #808080;
+    --retro-shadow: #b5b5b5;
+    --retro-accent: #2062a6;
+    --retro-accent-dark: #222;
+    --retro-btn-bg: #ece9d8;
+    --retro-btn-bg-active: #d4d0c8;
+    --retro-btn-bg-hover: #e4e4e4;
+    --retro-btn-border: 2px solid var(--retro-border-light);
+    --retro-btn-border-active: 2px solid var(--retro-border-dark);
+    --retro-radius: 0;
+    --retro-font: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    --retro-scrollbar-width: 16px;
+}
+/* 复古滚动条 */
+body::-webkit-scrollbar {
+    width: var(--retro-scrollbar-width);
+    background: var(--retro-bg);
+}
+body::-webkit-scrollbar-thumb {
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-dark);
+    box-shadow: inset 1px 1px var(--retro-shadow);
+    border-radius: var(--retro-radius);
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--retro-btn-bg-hover);
+}
+body::-webkit-scrollbar-corner {
+    background: var(--retro-bg);
+}
+/* 复古输入框 */
+input, textarea, select {
+    font-family: var(--retro-font);
+    background: var(--retro-bg);
+    color: var(--retro-accent-dark);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    border-radius: var(--retro-radius);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    outline: none;
+    transition: none;
+}
+input:focus, textarea:focus, select:focus {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+    background: var(--retro-btn-bg-hover);
+}
+/* 复古菜单 */
+.menu, .suggestion-container {
+    background: var(--retro-bg);
+    color: var(--retro-accent-dark);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    border-radius: var(--retro-radius);
+    padding: 6px;
+}
+.menu-item.selected, .suggestion-item.is-selected {
+    background: var(--retro-accent);
+    color: var(--retro-bg);
+}
+/* 复古checkbox */
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--retro-accent);
+    border-radius: var(--retro-radius);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    background: var(--retro-bg);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    vertical-align: middle;
+}
+input[type="checkbox"]:checked {
+    background: var(--retro-btn-bg-active);
+}
+/* 复古滑块 */
+input[type="range"]::-webkit-slider-thumb {
+    border-radius: var(--retro-radius);
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--retro-border-dark);
+    height: 2px;
+}
+/* 复古按钮增强 */
+button, .retro-btn, .block__icon.fn__flex-center.ariaLabel[data-type] {
+    font-family: var(--retro-font);
+    font-size: 14px;
+    color: var(--retro-accent-dark);
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    border-radius: var(--retro-radius);
+    transition: none;
+}
+button:hover, .retro-btn:hover, .block__icon.fn__flex-center.ariaLabel[data-type]:hover {
+    background: var(--retro-btn-bg-hover);
+}
+button:active, .retro-btn:active, .block__icon.fn__flex-center.ariaLabel[data-type]:active {
+    background: var(--retro-btn-bg-active);
+    border-top-color: var(--retro-border-dark);
+    border-left-color: var(--retro-border-dark);
+    border-bottom-color: var(--retro-border-light);
+    border-right-color: var(--retro-border-light);
+    box-shadow: none;
+}
+/* 复古tab增强 */
+.layout-tab-bar .item, .layout-tab-bar--readonly .item {
+    font-family: var(--retro-font);
+    background: var(--retro-btn-bg);
+    border: 2px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+    border-radius: var(--retro-radius);
+    transition: none;
+}
+.layout-tab-bar .item--focus {
+    background: var(--retro-btn-bg-active);
+    border-top-color: var(--retro-border-dark);
+    border-left-color: var(--retro-border-dark);
+    border-bottom-color: var(--retro-border-light);
+    border-right-color: var(--retro-border-light);
+    z-index: 2;
+}
+.layout-tab-bar .item:hover, .layout-tab-bar--readonly .item:hover {
+    background: var(--retro-btn-bg-hover);
+}
+/* 复古提示气泡 */
+.b3-tooltips {
+    background: var(--retro-bg);
+    color: var(--retro-accent-dark);
+    border: 1px solid var(--retro-shadow);
+    font-size: 12px;
+    border-radius: var(--retro-radius);
+    box-shadow: 1px 1px 0 var(--retro-shadow);
+}
+/* 复古状态栏增强 */
+#status.status {
+    font-family: var(--retro-font);
+    background: var(--retro-bg) !important;
+    border: 2px solid var(--retro-border-light);
+    border-top-color: var(--retro-border-light);
+    border-left-color: var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 0 -1px 0 var(--retro-shadow), 0 -2px 0 var(--retro-border-light);
+    border-radius: var(--retro-radius);
+}
+/* 复古窗口外框增强 */
+.retro-window, body {
+    background: var(--retro-bg);
+    border: 3px solid var(--retro-border-light);
+    border-bottom-color: var(--retro-border-dark);
+    border-right-color: var(--retro-border-dark);
+    box-shadow: 4px 4px 0 var(--retro-shadow), 8px 8px 0 var(--retro-border-light), 0 0 0 1px var(--retro-border-dark) inset;
+    border-radius: var(--retro-radius);
 }
 
 /* --- Retro Windows 95/98 Document Tree / File Tree Retro Style --- */
